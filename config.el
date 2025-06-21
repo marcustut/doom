@@ -75,4 +75,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(add-hook 'before-save-hook #'lsp-format-buffer nil t)
+;; Editor config
+(setq display-line-numbers-type 'relative) ; display relative line numbers
+(add-hook 'before-save-hook #'+format/buffer nil t) ; format on save
+
+;; Rustic configurations
+(setq rustic-rustfmt-args "+nightly") ; use the nightly toolchain for rustfmt
