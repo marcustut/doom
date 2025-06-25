@@ -79,5 +79,16 @@
 (setq display-line-numbers-type 'relative) ; display relative line numbers
 (add-hook 'before-save-hook #'+format/buffer nil t) ; format on save
 
+;; Keybinds
+(map! "C-h" 'evil-window-left
+      "C-j" 'evil-window-down
+      "C-k" 'evil-window-up
+      "C-l" 'evil-window-right)
+
 ;; Rustic configurations
 (setq rustic-rustfmt-args "+nightly") ; use the nightly toolchain for rustfmt
+
+;; Pyright
+(setq lsp-pyright-langserver-command "basedpyright")
+;; (require 'ruff-format)
+(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
