@@ -84,11 +84,18 @@
       "C-j" 'evil-window-down
       "C-k" 'evil-window-up
       "C-l" 'evil-window-right)
+(map! :leader
+      (:prefix ("l" . "lsp")
+       :desc "Rename" "r" #'lsp-rename
+       :desc "Format buffer" "f" #'lsp-format-buffer
+       :desc "Code actions" "a" #'lsp-execute-code-action
+       :desc "Compile" "c" #'compile
+       :desc "Recompile" "C" #'recompile))
 
 ;; Rustic configurations
 (setq rustic-rustfmt-args "+nightly") ; use the nightly toolchain for rustfmt
 
 ;; Pyright
-(setq lsp-pyright-langserver-command "basedpyright")
+;; (setq lsp-pyright-langserver-command "basedpyright")
 ;; (require 'ruff-format)
 (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
